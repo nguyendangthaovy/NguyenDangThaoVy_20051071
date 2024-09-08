@@ -11,27 +11,16 @@
     <div id="forecast"></div>
 
     <script>
-        // Function to print the forecast
         function printForecast(arr) {
             let forecastString = '... ';
-            
-            // Iterate through the array to build the forecast string
             for (let i = 0; i < arr.length; i++) {
                 forecastString += `${arr[i]}°C in ${i + 1} days ... `;
             }
-            
-            // Log the final forecast string
             console.log(forecastString);
-            
-            // Display the result in the HTML document
             document.getElementById('forecast').textContent = forecastString;
         }
-
-        // Test data
         const data1 = [17, 21, 23];
         const data2 = [12, 5, -5, 0, 4];
-
-        // Call the function with test data
         printForecast(data1);
         printForecast(data2);
     </script>
