@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip</title>
+</head>
+<body>
+    <h1>Tip</h1>
+
+    <div id="output1">
+        <h2>Dữ liệu 1</h2>
+        <p id="result275"></p>
+        <p id="result40"></p>
+        <p id="result430"></p>
+    </div>
+
+    <script>
+        function calculateTip(bill) {
+            // Ternary operator to determine tip percentage
+            const tip = (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
+            return tip;
+        }
+
+        function printTipInfo(bill) {
+            const tip = calculateTip(bill);
+            const total = bill + tip;
+            return `Hóa Đơn ${bill}, Tiền tip ${tip.toFixed(2)}, Tổng bill ${total.toFixed(2)}`;
+        }
+
+        // Test data
+        const bill1 = 275;
+        const bill2 = 40;
+        const bill3 = 430;
+
+        // Display results
+        document.getElementById('result275').textContent = printTipInfo(bill1);
+        document.getElementById('result40').textContent = printTipInfo(bill2);
+        document.getElementById('result430').textContent = printTipInfo(bill3);
+    </script>
+</body>
+</html>

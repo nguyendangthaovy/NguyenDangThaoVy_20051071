@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymnastics Competition</title>
+</head>
+<body>
+    <h1>Kết quả Cuộc thi Thể dục</h1>
+    
+    <div id="output1">
+        <h2>Dữ liệu 1</h2>
+        <p id="result1"></p>
+    </div>
+    
+    <div id="output2">
+        <h2>Dữ liệu 2</h2>
+        <p id="result2"></p>
+    </div>
+
+    <script>
+        // Arrow function to calculate the average score
+        const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+        // Hàm kiểm tra Team nào thắng
+        function checkWinner(avgDolphins, avgKoalas) {
+            if (avgDolphins >= 2 * avgKoalas) {
+                return `Team Dolphins win  (${avgDolphins.toFixed(2)} vs. ${avgKoalas.toFixed(2)})`;
+            } else if (avgKoalas >= 2 * avgDolphins) {
+                return `Team Koalas win (${avgKoalas.toFixed(2)} vs. ${avgDolphins.toFixed(2)})`;
+            } else {
+                return `Không Team nào Win.`;
+            }
+        }
+
+        // Data 1
+        const dolphinsScores1 = [44, 23, 71];
+        const koalasScores1 = [65, 54, 49];
+        const avgDolphins1 = calcAverage(...dolphinsScores1);
+        const avgKoalas1 = calcAverage(...koalasScores1);
+        const result1 = checkWinner(avgDolphins1, avgKoalas1);
+        document.getElementById('result1').textContent = result1;
+
+        // Data 2
+        const dolphinsScores2 = [85, 54, 41];
+        const koalasScores2 = [23, 34, 27];
+        const avgDolphins2 = calcAverage(...dolphinsScores2);
+        const avgKoalas2 = calcAverage(...koalasScores2);
+        const result2 = checkWinner(avgDolphins2, avgKoalas2);
+        document.getElementById('result2').textContent = result2;
+    </script>
+</body>
+</html>

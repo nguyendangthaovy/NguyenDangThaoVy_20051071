@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tiền Tip</title>
+</head>
+<body>
+    <h1>Tính Tiền Tip</h1>
+
+    <div id="results">
+        <h2>Kết quả</h2>
+        <p id="bills"></p>
+        <p id="tips"></p>
+        <p id="total"></p>
+    </div>
+
+    <script>
+        // Function to calculate tip
+        function calcTip(bill) {
+            return (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
+        }
+
+        // Test data
+        const bills = [125, 555, 44];
+        
+        // Create arrays for tips and totals
+        const tips = bills.map(bill => calcTip(bill));
+        const total = bills.map((bill, index) => bill + tips[index]);
+
+        // Display results
+        document.getElementById('bills').textContent = `Bills: ${bills.join(', ')}`;
+        document.getElementById('tips').textContent = `Tips: ${tips.map(tip => tip.toFixed(2)).join(', ')}`;
+        document.getElementById('total').textContent = `Total Values: ${total.map(t => t.toFixed(2)).join(', ')}`;
+    </script>
+</body>
+</html>

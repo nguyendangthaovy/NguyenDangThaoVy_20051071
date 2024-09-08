@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Comparison</title>
+</head>
+<body>
+    <h1>BMI Comparison</h1>
+
+    <div id="result"></div>
+
+    <script>
+        // Create objects for Mark and John
+        const mark = {
+            fullName: 'Mark Miller',
+            mass: 78, // kg
+            height: 1.69, // meters
+            calcBMI: function() {
+                this.bmi = this.mass / (this.height ** 2);
+                return this.bmi;
+            }
+        };
+
+        const john = {
+            fullName: 'John Smith',
+            mass: 92, // kg
+            height: 1.95, // meters
+            calcBMI: function() {
+                this.bmi = this.mass / (this.height ** 2);
+                return this.bmi;
+            }
+        };
+
+        // Calculate BMI for both
+        const markBMI = mark.calcBMI();
+        const johnBMI = john.calcBMI();
+
+        // Compare and log the result
+        const result = markBMI > johnBMI 
+            ? `${mark.fullName}'s BMI (${markBMI.toFixed(1)}) is higher than ${john.fullName}'s (${johnBMI.toFixed(1)})!`
+            : `${john.fullName}'s BMI (${johnBMI.toFixed(1)}) is higher than ${mark.fullName}'s (${markBMI.toFixed(1)})!`;
+
+        // Display result
+        document.getElementById('result').textContent = result;
+    </script>
+</body>
+</html>

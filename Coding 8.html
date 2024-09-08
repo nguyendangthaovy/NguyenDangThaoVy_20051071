@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Tip Calculator</title>
+</head>
+<body>
+    <h1>Enhanced Tip Calculator</h1>
+
+    <div id="results">
+        <h2>Results</h2>
+        <p id="bills"></p>
+        <p id="tips"></p>
+        <p id="totals"></p>
+        <p id="average"></p>
+    </div>
+
+    <script>
+        // Function to calculate tip
+        function calcTip(bill) {
+            return (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
+        }
+
+        // Test data
+        const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+        // Empty arrays for tips and totals
+        const tips = [];
+        const totals = [];
+
+        // Calculate tips and totals using a for loop
+        for (let i = 0; i < bills.length; i++) {
+            const bill = bills[i];
+            const tip = calcTip(bill);
+            tips.push(tip);
+            totals.push(bill + tip);
+        }
+
+        // Function to calculate the average
+        function calcAverage(arr) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum / arr.length;
+        }
+
+        // Calculate average of totals
+        const averageTotal = calcAverage(totals);
+
+        // Display results
+        document.getElementById('bills').textContent = `Bills: ${bills.join(', ')}`;
+        document.getElementById('tips').textContent = `Tips: ${tips.map(tip => tip.toFixed(2)).join(', ')}`;
+        document.getElementById('totals').textContent = `Total Values: ${totals.map(total => total.toFixed(2)).join(', ')}`;
+        document.getElementById('average').textContent = `Average Total Value: ${averageTotal.toFixed(2)}`;
+    </script>
+</body>
+</html>
