@@ -31,17 +31,13 @@
                 return this.bmi;
             }
         };
-
-        // Calculate BMI for both
         const markBMI = mark.calcBMI();
         const johnBMI = john.calcBMI();
 
-        // Compare and log the result
         const result = markBMI > johnBMI 
             ? `${mark.fullName}'s BMI (${markBMI.toFixed(1)}) is higher than ${john.fullName}'s (${johnBMI.toFixed(1)})!`
             : `${john.fullName}'s BMI (${johnBMI.toFixed(1)}) is higher than ${mark.fullName}'s (${markBMI.toFixed(1)})!`;
 
-        // Display result
         document.getElementById('result').textContent = result;
     </script>
 </body>

@@ -19,9 +19,7 @@
     </div>
 
     <script>
-        // Arrow function to calculate the average score
         const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
-
         // Hàm kiểm tra Team nào thắng
         function checkWinner(avgDolphins, avgKoalas) {
             if (avgDolphins >= 2 * avgKoalas) {
@@ -32,8 +30,7 @@
                 return `Không Team nào Win.`;
             }
         }
-
-        // Data 1
+        // 1
         const dolphinsScores1 = [44, 23, 71];
         const koalasScores1 = [65, 54, 49];
         const avgDolphins1 = calcAverage(...dolphinsScores1);
@@ -41,7 +38,7 @@
         const result1 = checkWinner(avgDolphins1, avgKoalas1);
         document.getElementById('result1').textContent = result1;
 
-        // Data 2
+        // 2
         const dolphinsScores2 = [85, 54, 41];
         const koalasScores2 = [23, 34, 27];
         const avgDolphins2 = calcAverage(...dolphinsScores2);

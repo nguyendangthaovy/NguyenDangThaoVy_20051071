@@ -16,19 +16,13 @@
     </div>
 
     <script>
-        // Function to calculate tip
+        // Hàm kiêm tra tiền tip
         function calcTip(bill) {
             return (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
         }
-
-        // Test data
         const bills = [125, 555, 44];
-        
-        // Create arrays for tips and totals
         const tips = bills.map(bill => calcTip(bill));
         const total = bills.map((bill, index) => bill + tips[index]);
-
-        // Display results
         document.getElementById('bills').textContent = `Bills: ${bills.join(', ')}`;
         document.getElementById('tips').textContent = `Tips: ${tips.map(tip => tip.toFixed(2)).join(', ')}`;
         document.getElementById('total').textContent = `Total Values: ${total.map(t => t.toFixed(2)).join(', ')}`;

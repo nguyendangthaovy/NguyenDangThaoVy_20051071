@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <style>
+        /* Styles for the game */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+        }
+        .number {
+            font-size: 10rem;
+            width: 15rem;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: #eee;
+            color: #333;
+            line-height: 15rem;
+        }
+        .again {
+            background-color: #60b347;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .again:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess My Number</h1>
+    <p class="message">Start guessing...</p>
+    <div class="number">15</div>
+    <input class="guess" type="number" placeholder="Enter a number">
+    <button class="check">Check!</button>
+    <button class="again">Again!</button>
+    <p class="score">Score: 20</p>
+
+    <script>
+        let secretNumber = Math.trunc(Math.random() * 20) + 1;
+        let score = 20;
+
+        const numberElement = document.querySelector('.number');
+        const messageElement = document.querySelector('.message');
+        const guessInput = document.querySelector('.guess');
+        const scoreElement = document.querySelector('.score');
+        const againButton = document.querySelector('.again');
+
+        function resetGame() {
+            secretNumber = Math.trunc(Math.random() * 20) + 1;
+            score = 20;
+
+            numberElement.textContent = '?'; 
+            numberElement.style.width = '15rem';
+            numberElement.style.backgroundColor = '#eee';
+
+            messageElement.textContent = 'Start guessing...'; 
+            guessInput.value = ''; 
+            scoreElement.textContent = `Score: ${score}`; 
+
+            
+            document.body.style.backgroundColor = '#222';
+        }
+
+        
+        againButton.addEventListener('click', resetGame);
+    </script>
+</body>
+</html>
